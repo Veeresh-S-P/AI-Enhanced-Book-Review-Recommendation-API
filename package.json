@@ -1,0 +1,27 @@
+{
+  "name": "ai-enhanced-book-review-recommendation-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Veeresh-S-P/AI-Enhanced-Book-Review-Recommendation-API.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Veeresh-S-P/AI-Enhanced-Book-Review-Recommendation-API/issues"
+  },
+  "homepage": "https://github.com/Veeresh-S-P/AI-Enhanced-Book-Review-Recommendation-API#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.16.1"
+  }
+}
