@@ -85,11 +85,39 @@ const topreviedbooks=async (req,res) => {
 }
 
 
-//Get top N highest-rated books (minimum 3 reviews)
-//GET /analytics/top-rated-books?n=3
+// Get most active users (by number of reviews written)
+// GET /analytics/top-reviewers?n=3
 
 
-
+const getactiveusers=async (req,res) => {
+    const {n}=req.query
+    try{
+        const topusers= await User.aggregate([
+            {
+                $lookup:{
+                    from:"Review",
+                    localField:"_id",
+                    foreignField:"userid",
+                    as :"Review Details"
+                }
+            },
+            {
+                $addFields:{
+                    reviewcount:{$size:"$Review Details"}
+                }
+            },
+            {
+                $sort:{reviewcount:-1}
+            },
+            {
+                $limit:n
+            }
+        ])
+        res.json({topusers})
+    }catch(err){
+        console.log(err.message)
+    }
+}
 
 
 
@@ -100,5 +128,6 @@ module.exports = {
     updateBook,
     deleteBook,
     topreviedbooks,
-
+    getactiveusers
 }
+   
